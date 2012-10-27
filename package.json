@@ -1,0 +1,42 @@
+{
+  "name": "aabb",
+  "version": "0.0.1",
+  "description": "Axis-align bounding box",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imbcmdth/aabb.git"
+  },
+  "keywords": [
+    "3d",
+    "2d",
+    "aabb",
+    "axis-aligned",
+    "bounding",
+    "box",
+    "volume",
+    "area",
+    "geomtry",
+    "search"
+  ],
+  "devDependencies": {
+    "vows": "0.6.x"
+  },
+  "author": {
+    "name": "Jon-Carlos Rivera",
+    "email": "jon.carlos.rivera@gmail.com",
+    "url": "http://jon-carlos.com"
+  },
+  "scripts": {
+    "test": "vows"
+  },
+  "licenses": [
+    {
+      "type": "LGPL",
+      "url" : "http://www.gnu.org/licenses/lgpl.html"
+    }
+  ],
+  "engine": {
+    "node": ">=0.6.x"
+  }
+}
