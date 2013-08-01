@@ -62,6 +62,38 @@
 				return l;
 			},
 
+			// returns the distance to otherAABB
+			// See: http://objectmix.com/graphics/712155-fast-distance-between-two-aab
+			// b.html#post2485495
+			distance : function( otherAABB ) {
+				var distanceSquared,
+					dimension,
+					thisMin, thisMax,
+					otherMin, otherMax,
+					delta;
+
+				distanceSquared = 0;
+
+				for (dimension = 0; dimension < this._numDimensions; dimension++) {
+					thisMin = this.min[dimension];
+					thisMax = this.max[dimension];
+					otherMin = otherAABB.min[dimension];
+					otherMax = otherAABB.max[dimension];
+
+					if (thisMin > otherMax) {
+						delta = otherMax - thisMin;
+						distanceSquared += delta * delta;
+					}
+					else if (otherMin > thisMax) {
+						delta = thisMax - otherMin;
+						distanceSquared += delta * delta;
+					}
+					// else the projection intervals overlap.
+				}
+
+				return Math.sqrt(distanceSquared);
+			},
+
 			// expand this to contain otherAABB
 			expandByAABB : function( otherAABB ) {
 				var i;

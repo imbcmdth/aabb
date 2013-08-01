@@ -20,7 +20,7 @@
     "search"
   ],
   "devDependencies": {
-    "vows": "0.6.x"
+    "vows": "0.x.x"
   },
   "author": {
     "name": "Jon-Carlos Rivera",
