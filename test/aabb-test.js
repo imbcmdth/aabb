@@ -19,6 +19,12 @@ vows.describe('AABB').addBatch({
 		'surface area': function (aabb) {
 			assert.equal (aabb.getVolume(), 50);
 		},
+		'distance' : function(aabb) {
+			var overlaps = new AABB([-6, -3], [0, 0]),
+				doesNotOverlap = new AABB([5, 8], [10, 8]);
+			assert.equal (aabb.distance(overlaps), 0);
+			assert.equal (aabb.distance(doesNotOverlap), 5);
+		},
 		'overlaps' : function(aabb) {
 			var t = new AABB([-6, -3], [0, 0])
 			assert.isTrue (aabb.overlaps(t));
@@ -59,6 +65,12 @@ vows.describe('AABB').addBatch({
 		},
 		'volume': function (aabb) {
 			assert.equal (aabb.getVolume(), 500);
+		},
+		'distance' : function(aabb) {
+			var overlaps = new AABB([-6, -3, -6], [0, 0, 0]),
+				doesNotOverlap = new AABB([5, 8, 5], [10, 8, 10]);
+			assert.equal (aabb.distance(overlaps), 0);
+			assert.equal (aabb.distance(doesNotOverlap), 5);
 		},
 		'overlaps' : function(aabb) {
 			var t = new AABB([-6, -3, -6], [0, 0, 0])

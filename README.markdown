@@ -40,6 +40,10 @@ Returns the length of the AABB along the side defined by `axis`.
 
 Returns an array containing the lengths of all sides of the AABB.
 
+#### <span class="heading">distance</span> `(otherAABB)`
+
+Returns the distance from `this` to `otherAABB`.
+
 #### <span class="heading">expandByAABB</span> `(otherAABB)`
 
 Expand `this` to contain `otherAABB`.
