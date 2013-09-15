@@ -43,6 +43,14 @@ vows.describe('AABB').addBatch({
 			var t = new AABB([-6, -3], [6, 2])
 			assert.isFalse (aabb.contained(t));
 		},
+        'circle intersects': function( aabb ) {
+            var c = [ 0, 0, 1 ];
+            assert.isTrue( aabb.intersectWithSphere( c ) );
+        },
+        'circle does not intersect': function( aabb ) {
+            var c = [ 10, 10, 1 ];
+            assert.isFalse( aabb.intersectWithSphere( c ) );
+        }
 	},
 	'Testing 3D AABB': {
 		topic: function(){ return new AABB([-5, -2, -5], [5, 3, 5]); },
@@ -104,6 +112,14 @@ vows.describe('AABB').addBatch({
 				{a: 0, b: 0}
 			];
 			assert.isFalse (aabb.intersectWithSegment(s));
-		}
+		},
+        'sphere intersects': function( aabb ) {
+            var s = [ 0, 0, 0, 1 ];
+            assert.isTrue( aabb.intersectWithSphere( s ) );
+        },
+        'sphere does not intersect': function( aabb ) {
+            var s = [ 10, 10, 10, 1 ];
+            assert.isFalse( aabb.intersectWithSphere( s ) );
+        }
 	}
 }).export(module);
