@@ -285,7 +285,20 @@
 				}
 
 				return new_rs;
-			}
+			},
+
+            // Arvo's algorithm
+            // Arvo, James, A Simple Method for Box-Sphere Intersection Testing, p. 335-339, code: p. 730-732, BoxSphere.c.
+            // solid-solid case
+            // `sphere` should be Array [ x, y, z, radius ]
+            intersectWithSphere: function( sphere ) {
+                var dmin = 0;
+                for ( var i = 0; i < this._numDimensions; i++ ) {
+                    if ( sphere[i] < this.min[i] ) dmin += Math.pow( ( sphere[i] - this.min[i] ), 2 );
+                    if ( sphere[i] > this.max[i] ) dmin += Math.pow( ( sphere[i] - this.max[i] ), 2 );
+                }
+                return dmin <= Math.pow( sphere[ this._numDimensions ], 2 )
+            }
 		};
 
 		return AABB;
